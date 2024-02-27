@@ -1,0 +1,49 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <form>
+                    <input type="checkbox" {% if task.completed %}checked{% endif %} onchange="submitChange('{{ task.id }}')">
+                    <span {% if task.completed %}style="text-decoration: line-through;"{% endif %}>{{ task.description }}</span>
+                    <input type="button" value="Apagar" onclick="submitDelete('{{ task.id }}')">
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="/add_task">
+        <label for="task">Add Task:</label>
+        <input type="text" id="task" name="task" required>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
+<script>
+    async function submitDelete(id){
+        await fetch(`/delete/${id}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        window.location.reload()
+    }
+
+    async function submitChange(id){
+        await fetch(`/mark_completed/${id}`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        window.location.reload()
+    }
+</script>
