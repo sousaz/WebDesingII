@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVP Example</title>
+</head>
+<body>
+  <h1>Contador: <span id="counter">0</span></h1>
+  <button id="incrementButton">Incrementar</button>
+
+  <script src="presenter.js"></script>
+</body>
+</html>
+<script>
+    class Model {
+        constructor(){
+            this.count = 0
+        }
+
+        increment(){
+            this.count++
+        }
+    }
+
+    class View {
+        constructor(){
+            this.incrementButton = document.querySelector("#incrementButton")
+            this.counter = document.querySelector("#counter")
+        }
+
+        bindIncrement(handler){
+            this.incrementButton.addEventListener("click", event =>{
+                handler()
+            })
+        }
+
+        render(count){
+            this.counter.innerHTML = count
+        }
+    }
+
+
+    class Presenter{
+        constructor(model, view){
+            this.model = model
+            this.view = view
+
+            this.view.bindIncrement(this.handleIncrement.bind(this))
+
+            this.view.render(this.model.count)
+        }
+
+        handleIncrement(){
+            this.model.increment()
+            this.view.render(this.model.count)
+        }
+    }
+
+
+    const model = new Model()
+    const view =  new View()
+    const presenter = new Presenter(model, view)
+</script>
