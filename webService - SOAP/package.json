@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "express": "^4.19.1",
     "soap": "^1.0.0"
   }
 }
