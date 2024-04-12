@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const amqp = require('amqplib');
 
 async function consumeMessages() {
