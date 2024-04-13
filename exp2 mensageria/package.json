@@ -1,0 +1,15 @@
+{
+  "name": "exp2-mensageria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "receiveOrder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "sqlite3": "^5.1.7"
+  }
+}
