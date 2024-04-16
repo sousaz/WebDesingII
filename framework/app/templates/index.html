@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'audio' %}">
+    {% csrf_token %}
+    <input type="text" name="message" id="" placeholder="Digite sua mensagem">
+    <button type="submit">Gerar audio</button>
+</form>
+
+    
