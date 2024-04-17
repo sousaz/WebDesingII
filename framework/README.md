@@ -16,7 +16,7 @@
 
 ### ORM Poderoso: Django inclui um ORM (Object-Relational Mapper) poderoso que simplifica o acesso e manipulação de dados no banco de dados, permitindo aos desenvolvedores interagirem com o banco de dados usando objetos Python, em vez de escrever SQL diretamente.
 
-### Um Vídeo: "Django Crash Course" do canal Corey Schafer no YouTube.
+### Um Vídeo: "Curso de Django" do canal Jefferson Lobato no YouTube.
 
 ### Site Oficial: Para mais informações sobre Django, visite o site oficial em https://www.djangoproject.com/.
 
