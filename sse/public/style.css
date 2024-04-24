@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    max-width: 100vw;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    margin: auto 20px;
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+#ballot-boxes{
+    max-width: 300px;
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: 1fr 48px 48px 48px 48px;
+    padding: 20px;
+    justify-items: center;
+    align-items: center;
+}
+
+#display{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    top: 0;
+    background-color: red;
+    grid-column: 1/4;
+    margin-bottom: 15px;
+}
+
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    text-align: center;
+    margin: 4px;
+}
+
+.button.number{
+    min-width:80px;
+    max-width: 80px;
+    background-color: blueviolet
+}
+
+.button.cancel{
+    min-width: 80px;
+    max-width: 80px;
+    background-color: royalblue;
+}
+
+.button.confirm{
+    min-width: 80px;
+    max-width: 80px;
+    background-color: green;
+}
+
+.button:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+#candidate-list li{
+    display: inline;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.candidate{
+    list-style: none;
+}
