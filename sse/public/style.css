@@ -19,7 +19,7 @@ body{
 
 #ballot-boxes{
     max-width: 300px;
-    background-color: aqua;
+    background-color: #808080;
     display: grid;
     grid-template-columns: repeat(3, 33.33%);
     grid-template-rows: 1fr 48px 48px 48px 48px;
@@ -33,9 +33,12 @@ body{
     height: 50px;
     position: relative;
     top: 0;
-    background-color: red;
+    background-color: #d0e3ed;
     grid-column: 1/4;
     margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .button{
@@ -50,19 +53,19 @@ body{
 .button.number{
     min-width:80px;
     max-width: 80px;
-    background-color: blueviolet
+    background-color: whitesmoke
 }
 
 .button.cancel{
     min-width: 80px;
     max-width: 80px;
-    background-color: royalblue;
+    background-color: rgb(212, 38, 38);
 }
 
 .button.confirm{
     min-width: 80px;
     max-width: 80px;
-    background-color: green;
+    background-color: rgb(51, 151, 51);
 }
 
 .button:hover{

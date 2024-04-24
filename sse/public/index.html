@@ -9,29 +9,29 @@
 <body>
     <div id="ballot-boxes">
         <div id="display"></div>
-        <div class="button number">7</div>
-        <div class="button number">8</div>
-        <div class="button number">9</div>
-        <div class="button number">4</div>
-        <div class="button number">5</div>
-        <div class="button number">6</div>
-        <div class="button number">1</div>
-        <div class="button number">2</div>
-        <div class="button number">3</div>
-        <div class="button number">0</div>
-        <div class="button confirm">Confirmar</div>
-        <div class="button cancel">Cancelar</div>
+        <div class="button number" onclick="insertValue('7')">7</div>
+        <div class="button number" onclick="insertValue('8')">8</div>
+        <div class="button number" onclick="insertValue('9')">9</div>
+        <div class="button number" onclick="insertValue('4')">4</div>
+        <div class="button number" onclick="insertValue('5')">5</div>
+        <div class="button number" onclick="insertValue('6')">6</div>
+        <div class="button number" onclick="insertValue('1')">1</div>
+        <div class="button number" onclick="insertValue('2')">2</div>
+        <div class="button number" onclick="insertValue('3')">3</div>
+        <div class="button number" onclick="insertValue('0')">0</div>
+        <div class="button confirm" onclick="confirmVote()">Confirmar</div>
+        <div class="button cancel" onclick="clearDisplay()">Cancelar</div>
     </div>
 
     <div id="vote-counting">
         <ul id="candidate-list">
             <li class="candidate">
                 <span class="name">11-Candidato Aulisio</span>
-                <span class="votes">0</span>
+                <span class="votes">0 <strong>Votos</strong></span>
             </li>
             <li class="candidate">
                 <span class="name">15-Candidato Mongiscleia</span>
-                <span class="votes">0</span>
+                <span class="votes">0 <strong>Votos</strong></span>
             </li>
             <li class="candidate">
                 <span class="name">16-Candidato Autobio</span>
@@ -39,5 +39,6 @@
             </li>
         </ul>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
