@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List items</title>
+</head>
+<body>
+    <h1>Listando itens</h1>
+    <label for="tenant">Selecione a Companhia:</label>
+    <select id="tenant" name="tenant" onchange="fetchItems()">
+        <option value="" selected disabled>Selecione...</option>
+        <option value="0">Supermercado 0</option>
+        <option value="1">Supermercado 1</option>
+    </select><br><br>
+    <div id="items-list"></div>
+
+    <script>
+        function fetchItems() {
+            const tenant = document.getElementById('tenant').value;
+            fetch("/items", { headers: { 'tenant-id': tenant } })
+            .then(response => response.json())
+            .then(data => {
+                const itemsList = document.getElementById('items-list');
+                itemsList.innerHTML = ''; // Clear previous items
+                data.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.innerHTML = `<strong>ID:</strong> ${item.id}, <strong>Nome:</strong> ${item.name}, <strong>Preço:</strong> ${item.price}`;
+                    itemsList.appendChild(itemDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching items:', error);
+                const itemsList = document.getElementById('items-list');
+                itemsList.textContent = 'Lista vazia ou erro ao buscar itens.';
+            });
+        }
+
+        // Fetch items on page load
+        window.onload = fetchItems;
+    </script>
+</body>
+</html>

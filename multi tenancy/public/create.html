@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+</head>
+<body>
+    <h1>Crie um novo item</h1>
+    <form id="create-item-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="price">preço:</label>
+        <input type="text" id="price" name="price" required></input><br><br>
+        <label for="tenant">Selecione a companhia:</label>
+        <select id="tenant" name="tenant" required>
+            <option value="" selected disabled>Selecione...</option>
+            <option value="0">Supermercado 0</option>
+            <option value="1">Supermercado 1</option>
+        </select><br><br>
+        <button type="submit">Criar Item</button>
+    </form>
+    <div id="message"></div>
+
+    <script>
+        document.getElementById('create-item-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const response = await fetch('/items', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'tenant-id': formData.get('tenant')
+                },
+                body: JSON.stringify(Object.fromEntries(formData.entries()))
+            });
+            const data = await response.json();
+            document.getElementById('message').textContent = `Item criado com ID: ${data.id}`;
+        });
+    </script>
+</body>
+</html>
